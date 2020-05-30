@@ -11,18 +11,18 @@ import java.awt.*;
 import java.util.List;
 
 @Component
-public class ButtonPanel extends JPanel {
+public class AlphabetPanel extends JPanel {
     @Autowired
     private ButtonService buttonService;
 
-    public ButtonPanel() {
+    public AlphabetPanel() {
         this.setPreferredSize(new Dimension(600, 400));
         this.setBackground(Color.blue);
         this.setLayout(new GridLayout(3, 0));
     }
 
     @PostConstruct
-    public void createButtons() {
+    public void createButtonsLetters() {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new FlowLayout());
 

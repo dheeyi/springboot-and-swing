@@ -26,16 +26,16 @@ public class AlphabetService implements AlphabetServiceInterface {
 
     @Override
     public List<AlphabetModel> getAllLettersFirst() {
-        return null;
+        return alphabetRepository.getFirstRow();
     }
 
     @Override
     public List<AlphabetModel> getAllLettersSecond() {
-        return null;
+        return alphabetRepository.getSecondRow();
     }
 
     @Override
     public List<AlphabetModel> getAllLettersThree() {
-        return null;
+        return alphabetRepository.getThreeRow();
     }
 }

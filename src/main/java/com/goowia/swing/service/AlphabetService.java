@@ -18,9 +18,9 @@ public class AlphabetService implements AlphabetServiceInterface {
     @Override
     public void saveData() {
         if (alphabetRepository.count() == 0) {
-            alphabetRepository.save(new AlphabetModel(Q_P));
-            alphabetRepository.save(new AlphabetModel(A_L));
-            alphabetRepository.save(new AlphabetModel(Z_M));
+            alphabetRepository.save(new AlphabetModel(Q_P, "first"));
+            alphabetRepository.save(new AlphabetModel(A_L, "second"));
+            alphabetRepository.save(new AlphabetModel(Z_M, "three"));
         }
     }
 

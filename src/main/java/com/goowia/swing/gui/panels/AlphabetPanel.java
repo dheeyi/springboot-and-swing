@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 @Component
@@ -49,6 +51,13 @@ public class AlphabetPanel extends JPanel {
         for (String title : titleAlphabet) {
             JButton button = new JButton(title);
             button.setPreferredSize(new Dimension(55, 40));
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JButton currentBut = (JButton) e.getSource();
+                    JOptionPane.showMessageDialog(null, "Button Pressed" + currentBut.getText());
+                }
+            });
             mainPanel.add(button);
         }
 

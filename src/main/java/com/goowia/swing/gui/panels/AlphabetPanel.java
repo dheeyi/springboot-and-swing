@@ -1,18 +1,15 @@
 package com.goowia.swing.gui.panels;
 
+import com.goowia.swing.gui.listener.ButtonListener;
+import com.goowia.swing.gui.util.Util;
 import com.goowia.swing.model.AlphabetModel;
-import com.goowia.swing.model.ButtonModel;
-import com.goowia.swing.repository.AlphabetRepository;
 import com.goowia.swing.service.AlphabetService;
-import com.goowia.swing.service.ButtonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 @Component
@@ -21,6 +18,8 @@ public class AlphabetPanel extends JPanel {
     private AlphabetService alphabetService;
 
     public AlphabetPanel() {
+        System.setProperty("butBackColor", "#C1ECF1");
+        System.setProperty("textColor", "#0B0BF6");
         this.setPreferredSize(new Dimension(600, 190));
         this.setBackground(Color.blue);
         this.setLayout(new GridLayout(3, 0));
@@ -47,17 +46,16 @@ public class AlphabetPanel extends JPanel {
     public JPanel createPanelButton(String[] titleAlphabet) {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new FlowLayout());
+        ButtonListener listener = new ButtonListener();
 
         for (String title : titleAlphabet) {
             JButton button = new JButton(title);
             button.setPreferredSize(new Dimension(55, 40));
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JButton currentBut = (JButton) e.getSource();
-                    JOptionPane.showMessageDialog(null, "Button Pressed" + currentBut.getText());
-                }
-            });
+            button.addActionListener(listener);
+            button.setBackground(Color.getColor("butBackColor"));
+            button.setForeground(Color.getColor("textColor"));
+            button.setBorder(BorderFactory.createEmptyBorder());
+            button.setFont(Util.FONT_TEXT);
             mainPanel.add(button);
         }
 

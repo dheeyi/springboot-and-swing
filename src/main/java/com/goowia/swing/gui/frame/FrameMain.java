@@ -3,6 +3,7 @@ package com.goowia.swing.gui.frame;
 import com.goowia.swing.gui.panels.AlphabetPanel;
 import com.goowia.swing.gui.panels.ButtonPanel;
 import com.goowia.swing.gui.panels.EmptyPanel;
+import com.goowia.swing.gui.panels.PanelImages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,8 @@ public class FrameMain extends JFrame {
     private EmptyPanel emptyPanel;
     @Autowired
     private AlphabetPanel alphabetPanel;
+    @Autowired
+    private PanelImages panelImages;
 
     public FrameMain() {
         this.setTitle("PROGRA III 2020");
@@ -37,6 +40,7 @@ public class FrameMain extends JFrame {
 
     public void addPanels(JPanel container) {
         container.add(alphabetPanel);
+        container.add(panelImages);
         container.add(emptyPanel);
     }
 }
